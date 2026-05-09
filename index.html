@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>ByteGenius</title>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar" id="sidebar">
+
+    <div class="brand">
+
+        <div class="logo">🤖</div>
+
+        <div class="brand-text">
+            <h1>ByteGenius</h1>
+            <p>Codestral AI</p>
+        </div>
+
+    </div>
+
+    <div class="menu">
+
+        <div class="control-card">
+
+            <label>Choose Model</label>
+
+            <select id="modelSelect">
+
+                <optgroup label="Codestral">
+
+                    <option value="codestral-latest">
+                        Codestral (Coding)
+                    </option>
+
+                </optgroup>
+
+            </select>
+
+        </div>
+
+        <div class="side-buttons">
+
+            <button class="theme-btn" id="themeBtn">
+                🌗 Theme
+            </button>
+
+            <button class="export-btn" onclick="exportChat()">
+                📥 Export Chat
+            </button>
+
+            <button class="export-btn" onclick="exportPDF()">
+                📄 Export PDF
+            </button>
+
+            <button class="clear-btn" onclick="clearChat()">
+                🗑 Clear Chat
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <div class="top-left">
+
+            <button class="menu-toggle" id="menuToggle">
+                ⚡
+            </button>
+
+            <div class="topbar-title">
+                <h2>Workspace ✨</h2>
+            </div>
+
+        </div>
+
+        <div class="status">
+            <div class="dot"></div>
+            Connected
+        </div>
+
+    </div>
+
+    <div id="chat"></div>
+
+    <div class="input-wrapper">
+
+        <div class="input-box">
+
+            <textarea
+                id="prompt"
+                placeholder="Ask me anything..."
+                rows="1"
+            ></textarea>
+
+            <button class="send-btn" onclick="sendMessage()">
+                🚀
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
